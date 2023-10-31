@@ -16,6 +16,6 @@
 #include <stdlib.h>
 
 
-
+int ft_strlen(char *str);
 
 #endif
