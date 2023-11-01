@@ -6,11 +6,13 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:00:19 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/10/30 13:00:21 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/11/01 07:32:48 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strlen(char *str)
+#include "libft.h"
+
+size_t ft_strlen(const char *str)
 {
   int i;
 

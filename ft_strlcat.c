@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 11:58:50 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/11/01 03:33:24 by muel-bak         ###   ########.fr       */
+/*   Created: 2023/11/01 06:56:24 by muel-bak          #+#    #+#             */
+/*   Updated: 2023/11/01 11:23:31 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memmove(void *dest, const void *src, size_t n)
-{
-    unsigned char *d = dest;
-    const unsigned char *s = src;
-    unsigned char buffer[n];
-    size_t m;
+size_t ft_strlcat(char *dst, const char *src, size_t dstsize) {
+    size_t dst_len;
+    size_t src_len;
+    size_t total;
+    size_t available;
     size_t i;
 
+    dst_len = ft_strlen(dst);
+    src_len = ft_strlen(src);
+    total = dst_len + src_len;
+    if (dstsize <= dst_len)
+        return dstsize + src_len;
+    available = dstsize - dst_len - 1;
     i = 0;
-    m = n;
-
-    while(i < n)
+    while (src[i] != '\0' && i < available)
     {
-        buffer[i] = s[i];
+        dst[dst_len + i] = src[i];
         i++;
     }
-    i = 0;
-    while(i < m)
-    {
-        d[i] = buffer[i];
-        i++;
-    }
-    return(dest);
+    dst[dst_len + i] = '\0';
+    return total;
 }
