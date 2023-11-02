@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 15:03:43 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/11/02 15:06:19 by muel-bak         ###   ########.fr       */
+/*   Created: 2023/11/02 17:51:12 by muel-bak          #+#    #+#             */
+/*   Updated: 2023/11/02 18:31:35 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlcpy(char *dest, const char *src, size_t size)
+void *ft_calloc(size_t num_elements, size_t element_size)
 {
-    char *d = dest;
-    const char *s = src;
-    size_t i = 0;
+	size_t size;
+	void *located;
 
-    if (size > 0)
-    {
-        while (i < (size - 1) && s[i] != '\0')
-        {
-            d[i] = s[i];
-            i++;
-        }
-        d[i] = '\0';
-    }
-
-    while (s[i] != '\0')
-    {
-        i++;
-    }
-    return (i);
+	size = num_elements * element_size;
+	located = malloc(size);
+	if (located == NULL)
+		return (NULL);
+	ft_bzero(located, size);
+	return (located);
 }

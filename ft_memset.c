@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 11:42:29 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/11/01 15:37:13 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/11/02 18:32:34 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,4 @@ void *ft_memset(void *ptr, int value, size_t num)
     }
     return ptr;
 }
+// remembre to test it with an array of ints in python tutuor
