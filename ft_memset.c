@@ -12,19 +12,19 @@
 
 #include "libft.h"
 
-void *ft_memset(void *ptr, int value, size_t num)
+void	*ft_memset(void *ptr, int value, size_t num)
 {
-    unsigned char *p;
-    unsigned char v;
-    
-    p = ptr;
-    v = (unsigned char)value;
-    while (num > 0)
-    {
-        *p = v;
-        p++;
-        num--;
-    }
-    return ptr;
+	unsigned char	*p;
+	unsigned char	v;
+
+	p = ptr;
+	v = (unsigned char)value;
+	while (num > 0)
+	{
+		*p = v;
+		p++;
+		num--;
+	}
+	return (ptr);
 }
 // remembre to test it with an array of ints in python tutuor

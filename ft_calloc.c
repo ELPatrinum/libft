@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-void *ft_calloc(size_t num_elements, size_t element_size)
+void	*ft_calloc(size_t num_elements, size_t element_size)
 {
-	size_t size;
-	void *located;
+	size_t	size;
+	void	*located;
 
 	size = num_elements * element_size;
 	located = malloc(size);
