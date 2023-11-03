@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 11:56:01 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/11/01 12:27:02 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/11/03 16:25:20 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,18 @@
 
 char *ft_strchr(const char *str, int c)
 {
-    while (*str)
+    char ch;
+
+	ch = (char)c;
+    while (*str != '\0')
     {
-        if (*str == c)
-            return ((char*)str);
+        if (*str == ch)
+            return (char*)str;
         str++;
     }
-    if (c == '\0')
-        return ((char*)str);
-    return (NULL);
+
+    if (ch == '\0')
+        return (char*)str;
+
+    return NULL;
 }

@@ -6,46 +6,30 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:16:44 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/11/01 15:24:51 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/11/03 20:32:37 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
-int get_locator(const char *str, int character)
+#include "libft.h"
+
+char    *ft_strrchr(const char *s, int c)
 {
-    int i;
-    int locator;
+    char    c2;
+    char    *location;
+    int        i;
 
+    c2 = (char)c;
+    location = NULL;
     i = 0;
-    locator = -1;
-    while (str[i] != '\0')
+    while (s[i] != '\0')
     {
-        if (str[i] == character)
-        {
-            locator = i;
-        }
+        if (s[i] == c2)
+            location = ((char *)(s + i));
         i++;
     }
-
-    return locator;
-}
-
-char *ft_strrchr(const char *str, int character)
-{
-    int locator;
-    
-    locator = get_locator(str, character);
-    if (locator >= 0)
-    {
-        return (char *)&str[locator];
-    }
-    else if (character == '\0')
-    {
-        return (char *)&str[0];
-    }
-    else
-    {
-        return NULL;
-    }
+    if (s[i] == c2)
+        location = ((char *)(s + i));
+    return (location);
 }

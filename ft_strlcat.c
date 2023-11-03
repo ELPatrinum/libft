@@ -6,13 +6,14 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 06:56:24 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/11/01 11:23:31 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/11/03 17:09:20 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlcat(char *dst, const char *src, size_t dstsize) {
+size_t ft_strlcat(char *dst, const char *src, size_t dstsize)
+{
     size_t dst_len;
     size_t src_len;
     size_t total;
