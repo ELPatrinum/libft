@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 16:40:31 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/11/04 19:23:42 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/11/04 20:10:33 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ int	digit_count(int n)
 	int	count;
 
 	count = 0;
+	if (n < 0)
+	{
+		count = 1;
+		n = n * -1;
+	}
 	while (n != 0)
 	{
 		n = n / 10;
@@ -47,23 +52,17 @@ char	*ft_itoa(int n)
 	char	*ascii;
 	int		i;
 
+	i = 0;
 	if (n == -2147483648 || n == 0)
 		return (minval_orzero(n));
-	else if (n < 0)
+	ascii = malloc(digit_count(n) + 1);
+	if (ascii == NULL)
+		return (NULL);
+	if (n < 0)
 	{
-		i = 1;
-		ascii = malloc(digit_count(-n) + 2);
-		if (ascii == NULL)
-			return (NULL);
 		ascii[0] = '-';
 		n = -n;
-	}
-	else
-	{
-		i = 0;
-		ascii = malloc(digit_count(n) + 1);
-		if (ascii == NULL)
-			return (NULL);
+		i = 1;
 	}
 	i = converte(ascii, n, i);
 	ascii[i] = '\0';
