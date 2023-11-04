@@ -14,16 +14,21 @@
 
 int	ft_memcmp(const void *ptr1, const void *ptr2, size_t num)
 {
-	const unsigned char	*p1;
-	const unsigned char	*p2;
+	const unsigned char	*p1 = ptr1;
+	const unsigned char	*p2 = ptr2;
 	size_t				i;
 
-	p1 = ptr1;
-	p2 = ptr2;
 	i = 0;
-	while (p1[i] && p2[i] && p1[i] == p2[i] && i < num)
+	while (i < num && p1[i] == p2[i])
 	{
 		i++;
 	}
-	return (p1[i] - p2[i]);
+	if (i == num)
+	{
+		return (0);
+	}
+	else
+	{
+		return ((int)p1[i] - p2[i]);
+	}
 }

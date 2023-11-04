@@ -11,18 +11,19 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stddef.h>
 
-int	is_it_acopy(size_t indx, const char *h, const char *n, size_t len)
+int	is_it_acopy(size_t indx, const char *h, const char *n)
 {
 	size_t	j;
 
 	j = 0;
-	while (j < len && h[indx] == n[j])
+	while (n[j] != '\0' && h[indx] == n[j])
 	{
 		j++;
 		indx++;
 	}
-	if (j == len)
+	if (n[j] == '\0')
 		return (1);
 	else
 		return (0);
@@ -32,18 +33,19 @@ char	*ft_strnstr(const char *haystack, const char *needle,
 		size_t haystacklen)
 {
 	size_t		i;
-	const char	*p;
+	const char	*p = NULL;
 	size_t		remaining;
 
 	i = 0;
-	p = NULL;
+	if (needle[0] == '\0')
+		return ((char *)haystack);
 	while (haystack[i] != '\0' && i < haystacklen)
 	{
 		if (haystack[i] == needle[0])
 		{
 			remaining = haystacklen - i;
 			if (remaining >= ft_strlen(needle) && is_it_acopy(i, haystack,
-					needle, ft_strlen(needle)))
+					needle))
 			{
 				p = &haystack[i];
 				break ;

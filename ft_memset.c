@@ -27,4 +27,3 @@ void	*ft_memset(void *ptr, int value, size_t num)
 	}
 	return (ptr);
 }
-// remembre to test it with an array of ints in python tutuor
