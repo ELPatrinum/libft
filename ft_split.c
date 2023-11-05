@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:09:17 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/11/05 21:00:58 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/11/05 21:58:35 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,84 +28,71 @@ static size_t	count_strings(char const *s, char c)
 	return (count);
 }
 
-static char	*extract_substring(char const *s, char c, size_t *start_index)
+static char	*the_spliter(size_t *i, char const *s, char c)
+{
+	size_t	index;
+	size_t	size;
+	size_t	tmp;
+	char	*res;
+
+	while (s[*i] && s[*i] == c)
+		(*i)++;
+	tmp = *i;
+	while (s[*i] && s[*i] != c)
+		(*i)++;
+	size = *i - tmp;
+	res = malloc(size + 1);
+	if (!res)
+		return (NULL);
+	index = 0;
+	while (tmp + index < *i)
+	{
+		res[index] = s[tmp + index];
+		index++;
+	}
+	res[index] = '\0';
+	return (res);
+}
+
+static char	**split_free(char **arr)
 {
 	size_t	i;
-	size_t	len;
-	size_t	j;
-	char	*substring;
 
-	i = *start_index;
-	len = 0;
-	while (s[i] != c && s[i] != '\0')
+	i = 0;
+	if (arr)
 	{
-		len++;
-		i++;
-	}
-	substring = malloc((len + 1) * sizeof(char));
-	if (substring == NULL)
-		return (NULL);
-	j = 0;
-	while (j < len)
-	{
-		substring[j] = s[*start_index];
-		(*start_index)++;
-		j++;
-	}
-	substring[j] = '\0';
-	return (substring);
-}
-
-int	helper(size_t result_index, char **result)
-{
-	while (result_index > 0)
-	{
-		free(result[result_index - 1]);
-		result_index--;
-	}
-	return (-1);
-}
-
-static int	split_string(char const *s, char c, char **result)
-{
-	size_t	start_index;
-	size_t	result_index;
-	char	*substring;
-
-	start_index = 0;
-	result_index = 0;
-	while (s[start_index] != '\0')
-	{
-		if (s[start_index] != c)
+		while (arr[i])
 		{
-			substring = extract_substring(s, c, &start_index);
-			if (substring == NULL)
-				helper(result_index, result);
-			result[result_index] = substring;
-			result_index++;
+			free(arr[i]);
+			i++;
 		}
-		else
-			start_index++;
+		free(arr);
 	}
-	result[result_index] = NULL;
-	return (0);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	num_strings;
-	char	**result;
+	size_t	index;
+	size_t	wc;
+	size_t	i;
+	char	**res;
 
-	if (s == NULL)
+	if (!s)
 		return (NULL);
-	num_strings = count_strings(s, c);
-	result = malloc((num_strings + 1) * sizeof(char *));
-	if (result == NULL)
+	i = 0;
+	index = 0;
+	wc = count_strings(s, c);
+	res = (char **)malloc(sizeof(char *) * (wc + 1));
+	if (!res)
 		return (NULL);
-	if (split_string(s, c, result) == -1)
+	while (index < wc)
 	{
-		free(result);
-		return (NULL);
+		res[index] = the_spliter(&i, s, c);
+		if (!res[index])
+			return (split_free(res));
+		index++;
 	}
-	return (result);
+	res[wc] = NULL;
+	return (res);
 }
