@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:09:17 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/11/05 20:56:24 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/11/05 21:00:58 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static char	*extract_substring(char const *s, char c, size_t *start_index)
 	return (substring);
 }
 
-int helper(size_t result_index, char **result)
+int	helper(size_t result_index, char **result)
 {
 	while (result_index > 0)
 	{
@@ -65,6 +65,7 @@ int helper(size_t result_index, char **result)
 	}
 	return (-1);
 }
+
 static int	split_string(char const *s, char c, char **result)
 {
 	size_t	start_index;
