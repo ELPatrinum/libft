@@ -6,21 +6,21 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:51:12 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/11/02 18:31:35 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/11/05 23:40:02 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t num_elements, size_t element_size)
+void	*ft_calloc(size_t elements, size_t size)
 {
-	size_t	size;
-	void	*located;
+	void	*res;
 
-	size = num_elements * element_size;
-	located = malloc(size);
-	if (located == NULL)
+	if (elements && size && elements > (4294967295 / size))
 		return (NULL);
-	ft_bzero(located, size);
-	return (located);
+	res = malloc(elements * size);
+	if (!res)
+		return (NULL);
+	ft_bzero(res, elements * size);
+	return (res);
 }
