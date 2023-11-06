@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:09:17 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/11/05 21:58:35 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/11/06 14:09:14 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static size_t	count_strings(char const *s, char c)
 	return (count);
 }
 
-static char	*the_spliter(size_t *i, char const *s, char c)
+static char	*split_it(size_t *i, char const *s, char c)
 {
 	size_t	index;
 	size_t	size;
@@ -54,7 +54,7 @@ static char	*the_spliter(size_t *i, char const *s, char c)
 	return (res);
 }
 
-static char	**split_free(char **arr)
+static char	**free_split(char **arr)
 {
 	size_t	i;
 
@@ -88,9 +88,9 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	while (index < wc)
 	{
-		res[index] = the_spliter(&i, s, c);
+		res[index] = split_it(&i, s, c);
 		if (!res[index])
-			return (split_free(res));
+			return (free_split(res));
 		index++;
 	}
 	res[wc] = NULL;
