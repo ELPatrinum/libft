@@ -6,13 +6,13 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 13:24:28 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/11/04 16:12:21 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:53:44 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*empty_string(void)
+static char	*empty_string(void)
 {
 	char	*empty_str;
 

@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:09:17 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/11/06 15:13:15 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:42:57 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,12 @@ static char	**free_(char **arr)
 	size_t	i;
 
 	i = 0;
-	if (arr)
+	while (arr[i])
 	{
-		while (arr[i])
-		{
-			free(arr[i]);
-			i++;
-		}
-		free(arr);
+		free(arr[i]);
+		i++;
 	}
+	free(arr);
 	return (NULL);
 }
 
