@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:09:17 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/11/06 14:42:33 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:13:15 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,25 +74,25 @@ static char	**free_(char **arr)
 char	**ft_split(char const *s, char c)
 {
 	size_t	index;
-	size_t	wc;
+	size_t	strings_number;
 	size_t	i;
-	char	**res;
+	char	**result;
 
 	if (!s)
 		return (NULL);
 	i = 0;
 	index = 0;
-	wc = count_strings(s, c);
-	res = (char **)malloc(sizeof(char *) * (wc + 1));
-	if (!res)
+	strings_number = count_strings(s, c);
+	result = (char **)malloc(sizeof(char *) * (strings_number + 1));
+	if (!result)
 		return (NULL);
-	while (index < wc)
+	while (index < strings_number)
 	{
-		res[index] = split_it(&i, s, c);
-		if (!res[index])
-			return (free_(res));
+		result[index] = split_it(&i, s, c);
+		if (!result[index])
+			return (free_(result));
 		index++;
 	}
-	res[wc] = NULL;
-	return (res);
+	result[strings_number] = NULL;
+	return (result);
 }
