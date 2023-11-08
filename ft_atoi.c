@@ -6,13 +6,13 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 16:50:57 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/11/07 16:04:56 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/11/08 09:34:22 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	calc_result(long tmp, long result, char c, int sign)
+static long	calc_result(long tmp, long result, char c, int sign)
 {
 	tmp = (result * 10) + (c - 48);
 	if (tmp < result && sign == 1)

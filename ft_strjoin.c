@@ -6,13 +6,13 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 12:48:01 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/11/04 12:48:01 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/11/08 09:28:27 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*join_it(char *str1, char *str2, char *joined)
+static char	*join_it(char *str1, char *str2, char *joined)
 {
 	int	i;
 	int	j;
@@ -42,6 +42,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*str2;
 	char	*joined;
 
+	if (!s1 && s2)
+		return ((char *)s2);
+	if (s1 && !s2)
+		return ((char *)s1);
+	if (!s1 && !s2)
+		return (NULL);
 	str1 = (char *)s1;
 	str2 = (char *)s2;
 	joined = malloc((ft_strlen(s1) + ft_strlen(s2)) + 1);

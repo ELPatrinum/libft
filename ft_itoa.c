@@ -6,13 +6,13 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 16:40:31 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/11/07 15:34:18 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/11/08 09:34:51 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	digit_count(int n)
+static int	digit_count(int n)
 {
 	int	count;
 
@@ -30,7 +30,7 @@ int	digit_count(int n)
 	return (count);
 }
 
-int	converte(char *ascii, int n, int i)
+static int	converte(char *ascii, int n, int i)
 {
 	if (n >= 10)
 	{
@@ -40,7 +40,7 @@ int	converte(char *ascii, int n, int i)
 	return (i + 1);
 }
 
-char	*minval_orzero(int n)
+static char	*minval_orzero(int n)
 {
 	if (n == 0)
 		return (ft_strdup("0"));

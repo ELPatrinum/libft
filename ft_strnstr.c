@@ -6,14 +6,14 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:47:21 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/11/02 16:48:42 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/11/08 09:40:30 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stddef.h>
 
-int	is_it_acopy(size_t indx, const char *h, const char *n)
+static int	is_it_acopy(size_t indx, const char *h, const char *n)
 {
 	size_t	j;
 
